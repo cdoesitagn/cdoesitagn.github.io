@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Web Games Portal</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../css/play.css">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -47,7 +47,7 @@
     </div>
     <div class="ads" id="header-ads">
         <a href="google.com">
-            <img src="./assets/ads/footer-ads.jpg" alt="">
+            <img src="../assets/ads/footer-ads.jpg" alt="">
         </a>
     </div>
     
@@ -57,62 +57,48 @@
     <aside class="left-ads">
       <div class="side-ads">
         <a href="google.com">
-            <img src="./assets/ads/ads-1.jpg" alt="">
+            <img src="../assets/ads/ads-1.jpg" alt="">
         </a>
       </div>
     </aside>
-        <section class="main-content">
-            <h2>Best Games Selected By Us</h2>
-            <div class="game-list" id="best-games">
-            <div class="game-card">
-                <img src="./assets/airplane.png" alt="Airplane Battle">
-                <p>Airplane Battle</p>
-            </div>
-            <div class="game-card">
-              <a href="">
-                <img src="./assets/boat.png" alt="Speedy Boat">
-                <p>Speedy Boat</p>
-              </a>
-            </div>
-            <div class="game-card">
-              <a href="">
-                <img src="./assets/galaxy.png" alt="Basket Ball">
-                <p>Galaxy Battle</p>
-              </a>
-            </div>  
-            <div class="game-card">
-                <img src="./assets/microtank.png" alt="Tank Battle">
-                <p>Tank Battle</p>
-            </div>
-            </div>
-      <h2>More Games</h2>
-      <div id="more-games" class="game-list">
-        <!-- Additional games will appear here -->
-        <div class="game-card fade-in">
-          <img src="./assets/image-example.jpg" alt="Game Thumbnail">
-          <p>Car Shooting Rival Rage</p>
+    <section class="main-content">
+        <!-- Embedded Game -->
+        <div class="game-embed">
+          <iframe 
+            src="../games/hextris/hextris-gh-pages/index.html" 
+            title="Game Frame" 
+            width="100%" 
+            height="500px" 
+            frameborder="0" 
+            allowfullscreen>
+          </iframe>
         </div>
-        <div class="game-card fade-in">
-          <img src="./assets/image-example.jpg" alt="Game Thumbnail">
-          <p>Zombie Road</p>
-        </div>
-        <div class="game-card fade-in">
-          <a href="../CompStruc/description/description.html">
-          <img src="./assets/image-example.jpg" alt="Game Thumbnail">
-          <p>The Lost Joystick</p>
-          </a>
-        </div>
-        <div class="game-card fade-in">
-          <img src="./assets/image-example.jpg" alt="Game Thumbnail">
-          <p>Physics Box</p>
-        </div>
-        
       
-    </section>
+        <!-- Similar Games -->
+        <div class="similar-games">
+          <h3>Similar Games</h3>
+          <div class="game-list">
+            <div class="game-card">
+              <img src="../assets/images/airplane.png" alt="Game 1">
+              <p>Game 1</p>
+            </div>
+            <div class="game-card">
+              <img src="../assets/images/airplane.png" alt="Game 2">
+              <p>Game 2</p>
+            </div>
+            <div class="game-card">
+              <img src="../assets/images/airplane.png" alt="Game 3">
+              <p>Game 3</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
     <aside class="right-ads">
       <div class="side-ads">
         <a href="google.com">
-            <img src="./assets/ads/ads-1.jpg" alt="">
+            <img src="../assets/ads/ads-1.jpg" alt="">
         </a>
       </div>
     </aside>
@@ -121,7 +107,7 @@
   <footer>
     <div id="footer-ads">
         <a href="google.com">
-            <img src="./assets/ads/footer-ads.jpg" alt="">
+            <img src="../assets/ads/footer-ads.jpg" alt="">
         </a>
     </div>
   </footer>
