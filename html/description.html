@@ -45,22 +45,18 @@
         </div>
       </nav>
     </div>
+
+    <!-- banner head -->
     <div class="ads" id="header-ads">
         <a href="google.com">
             <img src="../assets/ads/footer-ads.jpg" alt="">
         </a>
     </div>
+    <!-- banner head -->
     
   </header>
 
   <main>
-    <aside class="left-ads">
-      <div class="side-ads">
-        <a href="google.com">
-            <img src="../assets/ads/ads-1.jpg" alt="">
-        </a>
-      </div>
-    </aside>
     <section class="main-content">
         <!-- Game Details -->
         <div class="game-details">
@@ -95,24 +91,42 @@
           </div>
         </div>
       </section>
-      
-    <aside class="right-ads">
-      <div class="side-ads">
-        <a href="google.com">
-            <img src="../assets/ads/ads-1.jpg" alt="">
-        </a>
-      </div>
-    </aside>
+    
   </main>
 
   <footer>
-    <div id="footer-ads">
-        <a href="google.com">
-            <img src="../assets/ads/footer-ads.jpg" alt="">
+    <div class="sticky-anchor" id="sticky-ad">
+      <a href="google.com">
+        <img src="../assets/ads/footer-ads.jpg" alt="Sticky Ad">
+      </a>
+      <div class="popup-icon-close" style="position:absolute;width:50px;right:20px;top:20px;height:50px;z-index:9999999999;cursor:pointer;">
+        <a href="#" onclick="closeads('#sticky-ad')">
+          <div id="close-popup" url-close="">×</div>
         </a>
+      </div>
     </div>
   </footer>
-
+  
+  <!-- popup -->
+  <div id="popup">
+    <div style="text-align:center;margin:auto;display:flex;">
+      <div style="text-align:center;height:fit-content;align-content:center;width:fit-content;position:relative;">
+        <a class="ads-banner" rel="nofollow" id="url-popup" target="" href="#"> <img class="ads-banner" id="img-popup" style="max-width:500px" src="../assets/airplane.png"></a>
+        <div class="popup-icon-close" style="position:absolute;width:50px;right:-20px;top:-20px;height:50px;z-index:9999999999;cursor:pointer;">
+          <a href="#" onclick="closeads('#popup')">
+            <div id="close-popup" url-close="">×</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- popup -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="script.js"></script>
+  <script>
+    function closeads(id){
+      $(id).hide();
+    }
+  </script>
 </body>
 </html>

@@ -19,8 +19,8 @@
   <!-- End Google Analytics -->
 </head>
 <body>
-  <!-- Content starts here -->
-  <header>
+    <!-- Content starts here -->
+    <header>
     <div class="header-top">
       <h1>Web Games Portal</h1>
       <div class="search-container">
@@ -45,51 +45,48 @@
         </div>
       </nav>
     </div>
+
+    <!-- banner head -->
     <div class="ads" id="header-ads">
-        <a href="google.com">
-            <img src="../assets/ads/footer-ads.jpg" alt="">
-        </a>
+      <a href="google.com">
+        <img src="../assets/ads/footer-ads.jpg" alt="">
+      </a>
     </div>
+    <!-- banner head -->
     
   </header>
 
   <main>
-    <aside class="left-ads">
-      <div class="side-ads">
-        <a href="google.com">
-            <img src="../assets/ads/ads-1.jpg" alt="">
-        </a>
-      </div>
-    </aside>
-        <section class="main-content">
-            <h2>Best Games Selected By Us</h2>
-            <div class="game-list" id="best-games">
-            <div class="game-card">
-              <a href="../html/description.html">
-                <img src="../assets/airplane.png" alt="Airplane Battle">
-                <p>Airplane Battle</p>
-              </a>
-            </div>
-            <div class="game-card">
-              <a href="../html/description.html">
-                <img src="../assets/boat.png" alt="Speedy Boat">
-                <p>Speedy Boat</p>
-              </a>
-            </div>
-            <div class="game-card">
-              <a href="">
-                <img src="../assets/galaxy.png" alt="Basket Ball">
-                <p>Galaxy Battle</p>
-              </a>
-            </div>  
-            <div class="game-card">
-                <img src="../assets/microtank.png" alt="Tank Battle">
-                <p>Tank Battle</p>
-            </div>
-            </div>
+    <section class="main-content">
+      <h2>Best Games Selected By Us</h2>
+        <div class="game-list" id="best-games">
+          <div class="game-card">
+            <a href="../html/description.html">
+              <img src="../assets/airplane.png" alt="Airplane Battle">
+              <p>Airplane Battle</p>
+            </a>
+          </div>
+          <div class="game-card">
+            <a href="../html/description.html">
+              <img src="../assets/boat.png" alt="Speedy Boat">
+              <p>Speedy Boat</p>
+            </a>
+          </div>
+          <div class="game-card">
+            <a href="">
+              <img src="../assets/galaxy.png" alt="Basket Ball">
+              <p>Galaxy Battle</p>
+            </a>
+          </div>  
+          <div class="game-card">
+            <img src="../assets/microtank.png" alt="Tank Battle">
+            <p>Tank Battle</p>
+          </div>
+        </div>
+      <!-- moregame -->
       <h2>More Games</h2>
       <div id="more-games" class="game-list">
-        <!-- Additional games will appear here -->
+      <!-- Additional games will appear here -->
         <div class="game-card fade-in">
           <img src="../assets/image-example.jpg" alt="Game Thumbnail">
           <p>Car Shooting Rival Rage</p>
@@ -100,34 +97,51 @@
         </div>
         <div class="game-card fade-in">
           <a href="../CompStruc/description/description.html">
-          <img src="../assets/image-example.jpg" alt="Game Thumbnail">
-          <p>The Lost Joystick</p>
+            <img src="../assets/image-example.jpg" alt="Game Thumbnail">
+            <p>The Lost Joystick</p>
           </a>
         </div>
         <div class="game-card fade-in">
           <img src="../assets/image-example.jpg" alt="Game Thumbnail">
           <p>Physics Box</p>
         </div>
-        
-      
+      </div>      
     </section>
-    <aside class="right-ads">
-      <div class="side-ads">
-        <a href="google.com">
-            <img src="../assets/ads/ads-1.jpg" alt="">
-        </a>
-      </div>
-    </aside>
   </main>
 
   <footer>
-    <div id="footer-ads">
-        <a href="google.com">
-            <img src="../assets/ads/footer-ads.jpg" alt="">
+    <div class="sticky-anchor" id="sticky-ad">
+      <a href="google.com">
+        <img src="../assets/ads/footer-ads.jpg" alt="Sticky Ad">
+      </a>
+      <div class="popup-icon-close" style="position:absolute;width:50px;right:20px;top:20px;height:50px;z-index:9999999999;cursor:pointer;">
+        <a href="#" onclick="closeads('#sticky-ad')">
+          <div id="close-popup" url-close="">×</div>
         </a>
+      </div>
     </div>
   </footer>
 
+  <!-- popup -->
+  <div id="popup">
+    <div style="text-align:center;margin:auto;display:flex;">
+      <div style="text-align:center;height:fit-content;align-content:center;width:fit-content;position:relative;">
+        <a class="ads-banner" rel="nofollow" id="url-popup" target="" href=""> <img class="ads-banner" id="img-popup" style="max-width:500px" src="../assets/airplane.png"></a>
+        <div class="popup-icon-close" style="position:absolute;width:50px;right:-20px;top:-20px;height:50px;z-index:9999999999;cursor:pointer;">
+          <a href="#" onclick="closeads('#popup')">
+            <div id="close-popup" url-close="">×</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- popup -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../script.js"></script>
+  <script>
+    function closeads(id){
+      $(id).hide();
+    }
+  </script>
 </body>
 </html>

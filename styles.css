@@ -167,6 +167,15 @@ main {
 
 /* Footer */
 footer {
+  background: rgba(51, 51, 51, 0.3);  
+  color: white;
+  padding: 10px 20px;
+  position: sticky;
+  bottom: 0; /* Sticks to the bottom of the viewport */
+  z-index: 1000; /* Ensures it stays above other content */
+  text-align: center;
+}
+/* footer {
   background-color: #111;
   padding: 20px 0;
   text-align: center;
@@ -176,7 +185,7 @@ footer img {
   width: 100%;
   max-height: 120px;
   object-fit: contain;
-}
+} */
 
 /* Fade-In Animation for Game Cards */
 .fade-in {
@@ -209,4 +218,31 @@ footer img {
   .main-content {
     margin: 0;
   }
+}
+
+#popup{
+  display: flex; 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  background-color: rgba(0, 0, 0, 0.5); 
+  width: 100vw; 
+  height: 100vh; 
+  z-index: 99984; 
+  justify-content: center;
+}
+
+#close-popup{
+  color: rgb(0, 0, 0); 
+  float: right; 
+  font-weight: bold; 
+  justify-content: center; 
+  align-items: center; 
+  width: 30px; 
+  height: 30px; 
+  border-radius: 50%; 
+  background-color: rgb(149, 149, 149); 
+  font-size: 24px; 
+  display: block;
 }
