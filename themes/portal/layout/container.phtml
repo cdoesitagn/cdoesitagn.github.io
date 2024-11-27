@@ -1,0 +1,103 @@
+<?php
+global $portal, $zon, $site_url;
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Games Portal</title>
+  <link rel="stylesheet" href="<?php echo $site_url ?>themes/portal/css/styles.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <!-- End Google Analytics -->
+</head>
+<body>
+  <!-- Content starts here -->
+  <header>
+    <div class="header-top">
+      <h1>Web Games Portal</h1>
+      <div class="search-container">
+        <input type="text" placeholder="Search...">
+        <button>Search</button>
+      </div>
+      <nav>
+        <a href="#">About Us</a>
+        <a href="#">Privacy</a>
+        <a href="#">Log In</a>
+        <div class="dropdown">
+          <button class="dropbtn">Categories</button>
+          <div class="dropdown-content">
+            <a href="#">Action</a>
+            <a href="#">Puzzle</a>
+            <a href="#">Racing</a>
+            <a href="#">Sports</a>
+            <a href="#">Adventure</a>
+            <a href="#">Shooter</a>
+            <a href="#">Arcade</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- banner head -->
+    <div class="ads" id="header-ads">
+        <a href="google.com">
+            <img src="<?php echo $site_url ?>themes/portal/assets/ads/footer-ads.jpg" alt="">
+        </a>
+    </div>
+    <!-- banner head -->
+
+  </header>
+
+  <main>
+    <section class="main-content">
+        <?= $portal['content'] ?>
+    </section>
+  </main>
+
+  <footer>
+    <div class="sticky-anchor" id="sticky-ad">
+      <a href="google.com">
+        <img src="<?php echo $site_url ?>themes/portal/assets/ads/footer-ads.jpg" alt="Sticky Ad">
+      </a>
+      <div class="popup-icon-close" style="position:absolute;width:50px;right:20px;top:20px;height:50px;z-index:9999999999;cursor:pointer;">
+        <a href="#" onclick="closeads('#sticky-ad')">
+          <div id="close-popup" url-close="">×</div>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- popup -->
+  <div id="popup">
+    <div style="text-align:center;margin:auto;display:flex;">
+      <div style="text-align:center;height:fit-content;align-content:center;width:fit-content;position:relative;">
+        <a class="ads-banner" rel="nofollow" id="url-popup" target="" href=""> <img class="ads-banner" id="img-popup" style="max-width:500px" src="<?php echo $site_url ?>themes/portal/assets/airplane.png"></a>
+        <div class="popup-icon-close" style="position:absolute;width:50px;right:-20px;top:-20px;height:50px;z-index:9999999999;cursor:pointer;">
+          <a href="#" onclick="closeads('#popup')">
+            <div id="close-popup" url-close="">×</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- popup -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="<?php echo $site_url ?>themes/portal/script/script.js"></script>
+  <script>
+    function closeads(id){
+      $(id).hide();
+    }
+  </script>
+</body>
+</html>
