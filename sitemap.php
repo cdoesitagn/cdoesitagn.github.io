@@ -3,7 +3,7 @@ header('Content-type: application/xml');
 echo '<?xml version="1.0" encoding="UTF-8"?>
 <urlset  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">';
 require_once("app/init.php");
-$game_query = "select * from zon_games order by id desc limit 2000";
+$game_query = "select * from zon_games order by id desc limit 200";
 // $blog_query = "select * from zon_blog order by id desc limit 2000";
 // $pages_query = "select * from zon_pages order by id desc limit 2000";
 $run = mysqli_query($con, $game_query);

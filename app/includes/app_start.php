@@ -71,19 +71,18 @@ if (isset($_SESSION['is_admin_Loggedin'])) {
 }    
 
 
-
-// function getGame($limit)
-// {
-//     global $socket;
-//     if ($limit !== '') {
-//         $sql = $socket->query("SELECT * FROM " . T_ZON_GAMES . "  ORDER BY id DESC LIMIT $limit ");
-//         $data = [];
-//         while ($row = $sql->fetch_assoc()) {
-//             $data[] = $row;
-//         }
-//         return $data;
-//     }
-// }
+function getGame($limit)
+{
+    global $socket;
+    if ($limit !== '') {
+        $sql = $socket->query("SELECT * FROM " . GAMES . "  ORDER BY id DESC LIMIT $limit ");
+        $data = [];
+        while ($row = $sql->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+}
 
 
 
@@ -98,27 +97,27 @@ function tabActivation($page, $class)
 }
 
 
-// function getAd($offset, $d)
-// {
-//     global $socket;
-//     $sql = $socket->query("SELECT * FROM " . T_ZON_ADS . " LIMIT $offset ");
-//     $data = [];
-//     while ($row = $sql->fetch_assoc()) {
-//         $data = $row;
-//     }
-//     return $data[$d];
-// }
+function getAd($offset, $d)
+{
+    global $socket;
+    $sql = $socket->query("SELECT * FROM " . ADS . " LIMIT $offset ");
+    $data = [];
+    while ($row = $sql->fetch_assoc()) {
+        $data = $row;
+    }
+    return $data[$d];
+}
 
-// function getAdById($id, $d)
-// {
-//     global $socket;
-//     $sql = $socket->query("SELECT * FROM " . T_ZON_ADS . " WHERE id=$id ORDER BY id DESC");
-//     $data = [];
-//     while ($row = $sql->fetch_assoc()) {
-//         $data = $row;
-//     }
-//     return $data[$d];
-// }
+function getAdById($id, $d)
+{
+    global $socket;
+    $sql = $socket->query("SELECT * FROM " . ADS . " WHERE id=$id ORDER BY id DESC");
+    $data = [];
+    while ($row = $sql->fetch_assoc()) {
+        $data = $row;
+    }
+    return $data[$d];
+}
 
 function makeSlug($v)
 {
@@ -178,7 +177,7 @@ function getTitle()
         echo $page['title'];
     } else if ($zon['page'][0] == '') {
         echo $zon['config']['site_title'];
-    } else if (isset($zon['page'][0]) && num_rows(T_ZON_USERS, "username='" . $zon['page'][0] . "'")) {
+    } else if (isset($zon['page'][0]) && num_rows(USERS, "username='" . $zon['page'][0] . "'")) {
         $username = $zon['user']['username'];
         $pro_title = $zon['config']['profile_title'];
         $title = str_replace("[name]", $username, $pro_title);
@@ -222,7 +221,7 @@ function formatNumber($num)
 function isCategory($name)
 {
     $n = str_replace("-", " ", urldecode($name));
-    if (num_rows(T_ZON_CATEGORY, "name='$n'")) {
+    if (num_rows(CATEGORY, "name='$n'")) {
         return true;
     } else {
         return false;
@@ -239,4 +238,14 @@ function clearText($value)
     $v = str_replace('-', "", $v);
     $v = str_replace('_', "", $v);
     return $v;
+}
+function dataBy($query)
+{
+    global $socket;
+    $sql = $socket->query($query);
+    $data = [];
+    while ($row = $sql->fetch_assoc()) {
+        $data[] = $row;
+    }
+    return $data;
 }

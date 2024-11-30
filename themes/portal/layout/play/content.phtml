@@ -1,44 +1,29 @@
 
 <?php
 global $zon, $site_url;
-$user_ip = $_SERVER['REMOTE_ADDR'];
+// $user_ip = $_SERVER['REMOTE_ADDR'];
 $data = [];
-if (isset($zon['page'][1])) {
-    $game_name = urldecode(str_replace("-", " ", $zon['page'][1]));
-    $data = dataBy("SELECT * FROM zon_games WHERE game_name='$game_name'")[0];
-    $game_id = $data['id'];
-}
+// if (isset($zon['page'][1])) {
+//     $game_name = urldecode(str_replace("-", " ", $zon['page'][1]));
+//     $data = dataBy("SELECT * FROM zon_games WHERE game_name='$game_name'")[0];
+//     $game_id = $data['id'];
+//   }
+$data = getGame(1)[0];
+$game_id = $data['id'];
 
-// if(empty($data)) {
-//     echo "<script>window.location.href = '/404'</script>";
-// }
+if(empty($data)) {
+    echo "<script>window.location.href = '/404'</script>";
+}
 
 
 ini_set('display_errors', 0);
 error_reporting(E_ALL);
 
 ?>
-<script>
-    poki = {
-        game_id: <?= $data['id'] ?>,
-        game_name: "<?= $data['game_name'] ?>",
-        url: "<?= $site_url ?>"
-    }
-
-</script>
 
 <!-- Embedded Game -->
 <div class="game-embed">
-  <!-- <iframe 
-    src="<?php echo $site_url ?>themes/portal/games/hextris/hextris-gh-pages/index.html" 
-    title="Game Frame" 
-    width="100%" 
-    height="500px" 
-    frameborder="0" 
-    allowfullscreen>
-  </iframe> -->
-  <!-- <iframe id="game" src="https://play.gamepix.com/2048/embed?sid=e4515" frameborder="0"></iframe> -->
-    <iframe id="game" src="https://play.gamepix.com/cerkio/embed?sid=e4515" frameborder="0"></iframe>
+    <iframe id="game" src="<?php echo $data['game_url']?>" frameborder="0"></iframe>
 </div>
 
 <!-- Similar Games -->
