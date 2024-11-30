@@ -1,29 +1,23 @@
 <?php
 session_start();
-$zon = [];
-$zon['url'] = $_GET['url'] ?? '';
-$zon['page'] = explode("/", $_GET['url'] ?? '');
-// $zon['config'] = ZonConfig();
-// $zon['user'] = getLoggedinUser();
+try {
+    $socket = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+    $con = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+    if ($socket) {
+        # empty code;
+    } else {
+        # error if connection is not established 
+    }
+} catch (Exeception $error) {
+    if ($error) {
+        echo 'Connection is not establish';
+    }
+}
 
-// try {
-//     $socket = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-//     $con = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-//     if ($socket) {
-//         # empty code;
-//     } else {
-//         # error if connection is not established 
-//     }
-// } catch (Exeception $error) {
-//     if ($error) {
-//         echo 'Connection is not establish';
-//     }
-// }
 
 function LoadFile($name)
 {
     global $zon;
-    // $theme = $zon['config']['theme'];
     $theme = "portal";    
     $path = "themes/$theme/layout/" . $name . ".phtml";
     if (file_exists($path)) {
@@ -55,20 +49,26 @@ function LoadFile2($name)
 
 
 
+$zon = [];
+$zon['url'] = $_GET['url'] ?? '';
+$zon['page'] = explode("/", $_GET['url'] ?? '');
+// $zon['config'] = ZonConfig();
+// $zon['user'] = getLoggedinUser();
+
 
 
 if (isset($_SESSION['Loggedin'])) {
     define("IsLoggedin", true);
 } else {
     define("IsLoggedin", false);
-}
+}    
 
 
 if (isset($_SESSION['is_admin_Loggedin'])) {
     define("IsAdmin", true);
 } else {
     define("IsAdmin", false);
-}
+}    
 
 
 
