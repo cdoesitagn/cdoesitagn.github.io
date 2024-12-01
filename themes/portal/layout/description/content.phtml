@@ -1,15 +1,30 @@
-<?php global $site_url ?>
+<?php
+global $zon, $site_url;
+$user_ip = $_SERVER['REMOTE_ADDR'];
+$data = [];
+if (isset($zon['page'][1])) {
+    $game_name = urldecode(str_replace("-", " ", $zon['page'][1]));
+    $data = dataBy("SELECT * FROM games WHERE game_name='$game_name'")[0];
+  }
+if(empty($data)) {
+    echo "<script>window.location.href = '/404'</script>";
+}
+ini_set('display_errors', 0);
+error_reporting(E_ALL);
+
+?>
+
 <!-- Game Details -->
 <div class="game-details">
   <div class="game-thumbnail">
-    <img src="<?php echo $site_url ?>themes/portal/assets/images/airplane.png" alt="Game Thumbnail">
+    <img src="<?=$data['game_image_url']?>" alt="Game Thumbnail">
   </div>
   <div class="game-description">
-    <h2>Game Title</h2>
+    <h2><?=$data['game_name']?></h2>
     <p>
-      Dive into an exciting adventure with this amazing game! Test your skills, explore new challenges, and have fun.
+      <?=$data['game_description']?>
     </p>
-    <button class="play-game-button"><a href="<?php echo $site_url ?>play">Play Now</a></button>
+    <button class="play-game-button"><a href="<?= $site_url ?>play/<?= makeSlug($data['game_name']) ?>">Play Now</a></button>
   </div>
 </div>
 

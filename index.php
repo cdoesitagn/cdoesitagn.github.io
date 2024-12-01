@@ -3,7 +3,7 @@ require_once 'app/init.php';
 ?>
 
 <script>
-    console.log("<?php echo $zon['url']?>");
+    console.log("<?php echo $zon['page']?>");
 </script>
 
 <?php
@@ -11,10 +11,6 @@ $portal['content'] = LoadFile('home/content');
 
 if ($zon['page'][0] === '') {
     $portal['content'] = LoadFile('home/content');
-    if (isset($zon['page'][1])) {
-    $game_name = str_replace("-", " ", $zon['page'][1]);
-    $poki['game_data'] = getGame(30);
-    }
 } else if ($zon['page'][0] === 'play') {
     $portal['content'] = LoadFile('play/content');
 } else if ($zon['page'][0] === 'description') {
@@ -29,4 +25,3 @@ if ($zon['page'][0] === '') {
 
 echo LoadFile('container');
 
-?>

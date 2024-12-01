@@ -1,12 +1,22 @@
-<?php global $zon, $site_url; ?>
+<?php global $zon, $site_url; 
+$games = getGame(40);
+?>
 <h2>Best Games Selected By Us</h2>
 <div class="game-list" id="best-games">
-  <div class="game-card">
+  <?php foreach($games as $game) { ?>
+    <div class="game-card">
+      <a class="m-game-link" href="<?= $site_url ?>description/<?= makeSlug($game['game_name']) ?>">
+          <img src="<?= $game['game_image_url'] ?>" alt="<?= $game['game_name'] ?>">
+          <p><?= $game['game_name'] ?></p>
+      </a>
+    </div>
+  <?php } ?>
+  <!-- <div class="game-card">
     <a href="description">
       <img src="<?php echo $site_url ?>themes/portal/assets/airplane.png" alt="Airplane Battle">
       <p>Airplane Battle</p>
     </a>
-  </div>
+  </div> -->
 </div>
 <h2>More Games</h2>
 <div id="more-games" class="game-list">
