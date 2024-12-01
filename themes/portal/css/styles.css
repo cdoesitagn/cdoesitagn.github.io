@@ -87,6 +87,41 @@ nav a {
   display: block;
 }
 
+.categories-container {
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center;    /* Centers content vertically (optional if used in a larger container) */
+  margin: 20px 0;         /* Adds vertical spacing */
+}
+
+.category {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 15px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.category:last-child {
+  margin-right: 0; /* Removes margin from the last button */
+}
+
+.category a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.category a:hover {
+  color: blue;
+  font-weight: bold;
+}
+
+
+
 .ads {
   text-align: center;
   margin: 10px 0;
