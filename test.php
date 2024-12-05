@@ -49,11 +49,34 @@ function getGame($limit)
     }
 }
 $data = [];
-$data = getGame(1);
+$data = GameByCategoryName(10,40);
 echo "<pre>"; // Optional: for better formatting
-print_r($data[0]['game_url']);
+print_r($data);
 echo "</pre>";
 ini_set('display_errors', 0);
 error_reporting(E_ALL);
 
+
+function GameByCategoryName($id, $limit)
+{
+    global $socket;
+    $name = getCategoryNameById($id);
+    if ($limit !== '') {
+        $sql = $socket->query("SELECT * FROM " . GAMES . " WHERE game_category='$name' LIMIT $limit ");
+        $data = [];
+        while ($row = $sql->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+}
+
+function getCategoryNameById($id)
+{
+    global $socket;
+    $sql = $socket->query("SELECT * FROM " . CATEGORY . " WHERE id=$id ");
+    $data = $row = $sql->fetch_assoc();
+
+    return $data['name'];
+}
 ?>

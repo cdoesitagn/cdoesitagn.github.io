@@ -25,10 +25,16 @@ global $portal, $zon, $site_url;
   <!-- Content starts here -->
   <header>
     <div class="header-top">
-      <h1>Web Games Portal</h1>
+      <a href="<?=$site_url?>">
+      <h1>
+        Web Games Portal
+      </h1> 
+      </a>
       <div class="search-container">
-        <input type="text" placeholder="Search...">
-        <button>Search</button>
+        <form action="">
+          <input id="search-input" type="text" placeholder="Search games...">
+          <button type="submit">Search</button>
+        </form>
       </div>
       <!-- <nav>
         <a href="#">About Us</a>
@@ -37,7 +43,7 @@ global $portal, $zon, $site_url;
         <div class="dropdown">
           <button class="dropbtn">Categories</button>
           <div class="dropdown-content">
-            <a href="#">Action</a>
+            <a href="=$site_urlc/action-game">Action</a>
             <a href="#">Puzzle</a>
             <a href="#">Racing</a>
             <a href="#">Sports</a>
@@ -52,20 +58,22 @@ global $portal, $zon, $site_url;
     <!-- banner head -->
     <div class="ads" id="header-ads">
         <a href="google.com">
-            <img src="<?php echo $site_url ?>themes/portal/assets/ads/footer-ads.jpg" alt="">
+            <img id="head-ad" src="<?php echo $site_url ?>themes/portal/assets/ads/footer-ads.jpg" alt="">
         </a>
     </div>
+    
+    
     <!-- banner head -->
      
-    <!-- Category -->
-    <div class="categories-container">
-      <button class="category"><a href="#">Top Games</a></button>
-      <button class="category"><a href="#">Action</a></button>
-      <button class="category"><a href="#">Adventure</a></button>
-      <button class="category"><a href="#">Arcade</a></button>
-      <button class="category"><a href="#">Puzzle & Logic</a></button>
-      <button class="category"><a href="#">Sports & Racing</a></button>
-      <button class="category"><a href="#">Strategy</a></button>
+        <!-- Category -->
+        <div class="categories-container">
+      <button class="category"><a href="<?php echo $site_url ?>c/top-game">Top Games</a></button>
+      <button class="category"><a href="<?php echo $site_url ?>c/action-game">Action</a></button>
+      <button class="category"><a href="<?php echo $site_url ?>c/adventure-game">Adventure</a></button>
+      <button class="category"><a href="<?php echo $site_url ?>c/arcade-game">Arcade</a></button>
+      <button class="category"><a href="<?php echo $site_url ?>c/puzzle-logic-game">Puzzle & Logic</a></button>
+      <button class="category"><a href="<?php echo $site_url ?>c/sport-game">Sports & Racing</a></button>
+      <button class="category"><a href="<?php echo $site_url ?>c/strategy-game">Strategy</a></button>
     </div>
 
   </header>
@@ -83,10 +91,10 @@ global $portal, $zon, $site_url;
   <footer>
     <div class="sticky-anchor" id="sticky-ad">
       <a href="google.com">
-        <img src="<?php echo $site_url ?>themes/portal/assets/ads/footer-ads.jpg" alt="Sticky Ad">
+        <img id="foot-anchor" src="<?php echo $site_url ?>themes/portal/assets/ads/footer-ads.jpg" alt="Sticky Ad">
       </a>
       <div class="popup-icon-close" style="position:absolute;width:50px;right:20px;top:20px;height:50px;z-index:9999999999;cursor:pointer;">
-        <a href="#" onclick="closeads('#sticky-ad')">
+        <a onclick="closeads('#sticky-ad')">
           <div id="close-popup" url-close="">×</div>
         </a>
       </div>
@@ -97,9 +105,9 @@ global $portal, $zon, $site_url;
   <div id="popup">
     <div style="text-align:center;margin:auto;display:flex;">
       <div style="text-align:center;height:fit-content;align-content:center;width:fit-content;position:relative;">
-        <a class="ads-banner" rel="nofollow" id="url-popup" target="" href=""> <img class="ads-banner" id="img-popup" style="max-width:500px" src="<?php echo $site_url ?>themes/portal/assets/airplane.png"></a>
+        <a class="ads-banner" rel="nofollow" id="url-popup" target="" href=""> <img class="ads-banner" id="img-popup" style="max-width:768px; max-width:1024px" src="<?php echo $site_url ?>themes/portal/assets/airplane.png"></a>
         <div class="popup-icon-close" style="position:absolute;width:50px;right:-20px;top:-20px;height:50px;z-index:9999999999;cursor:pointer;">
-          <a href="#" onclick="closeads('#popup')">
+          <a onclick="closeads('#popup')">
             <div id="close-popup" url-close="">×</div>
           </a>
         </div>

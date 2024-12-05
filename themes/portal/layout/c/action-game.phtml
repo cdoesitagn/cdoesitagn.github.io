@@ -1,0 +1,16 @@
+<?php global $zon, $site_url; 
+$games = [];
+$games = GameByCategoryName(10,40);
+?>
+
+<h2>Best Actions Games Selected By Us</h2>
+<div class="game-list" id="best-games">
+  <?php foreach($games as $game) { ?>
+    <div class="game-card">
+      <a class="m-game-link" href="<?= $site_url ?>description/<?= makeSlug($game['game_name']) ?>">
+          <img src="<?= $game['game_image_url'] ?>" alt="<?= $game['game_name'] ?>">
+          <p><?= $game['game_name'] ?></p>
+      </a>
+    </div>
+  <?php } ?>
+</div>

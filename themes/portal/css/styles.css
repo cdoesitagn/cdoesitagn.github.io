@@ -204,6 +204,7 @@ main {
 footer {
   background: rgba(51, 51, 51, 0.3);  
   color: white;
+  max-height:100px;
   padding: 10px 20px;
   position: sticky;
   bottom: 0; /* Sticks to the bottom of the viewport */
@@ -474,6 +475,19 @@ footer img {
   justify-content: center;
 }
 
+@media only screen and (max-width: 768px) and (orientation: landscape){
+  #img-popup{
+    max-width: 480px;
+    max-height: 320px;
+  }
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait){
+  #img-popup{
+    max-height: 480px;
+    max-width: 320px;
+  }
+}
 #close-popup{
   color: rgb(0, 0, 0); 
   float: right; 
@@ -486,4 +500,26 @@ footer img {
   background-color: rgb(149, 149, 149); 
   font-size: 24px; 
   display: block;
+}
+
+#foot-anchor{
+  max-width:728px;
+  max-height:90px;
+  display: inline-block; /* Để có thể căn giữa */
+  position: relative; /* Để cho phép định vị các phần tử con bên trong */
+  margin: 0 auto; /* Tạo khoảng cách tự động hai bên */
+}
+
+@media only screen and (orientation: landscape) {
+  #img-popup{
+    max-height: 1024px;
+    max-width: 768px;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  #img-popup{
+    max-width: 1024px;
+    max-height: 768px;
+  }
 }

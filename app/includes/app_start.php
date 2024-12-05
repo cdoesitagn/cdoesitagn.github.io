@@ -249,3 +249,60 @@ function dataBy($query)
     }
     return $data;
 }
+
+function GameByCategoryName($id, $limit)
+{
+    global $socket;
+    $name = getCategoryNameById($id);
+    if ($limit !== '') {
+        $sql = $socket->query("SELECT * FROM " . GAMES . " WHERE game_category='$name' LIMIT $limit ");
+        $data = [];
+        while ($row = $sql->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+}
+
+function getCategoryNameById($id)
+{
+    global $socket;
+    $sql = $socket->query("SELECT * FROM " . CATEGORY . " WHERE id=$id ");
+    $data = $row = $sql->fetch_assoc();
+
+    return $data['name'];
+}
+
+
+function getGamesByQuery($query, $limit)
+{
+    global $socket;
+    $sql = $socket->query("SELECT * FROM " . GAMES . " WHERE game_name LIKE '%$query%' LIMIT $limit ");
+    $data = [];
+    while ($row = $sql->fetch_assoc()) {
+        $data[] = $row;
+    }
+    return $data;
+}
+
+function getGamesByPopular($limit)
+{
+    global $socket;
+    $sql = $socket->query("SELECT MAX( game_played ) FROM " . GAMES . " LIMIT $limit ");
+    $s = $socket->query("SELECT * FROM " . GAMES . " ORDER BY id DESC LIMIT $limit ");
+    $data = [];
+    $count = 0;
+    while ($row = $sql->fetch_assoc()) {
+        $data[] = $row;
+        $count++;
+    }
+    $data2 = [];
+    if ($count <= 4) {
+        while ($r = $s->fetch_assoc()) {
+            $data2[] = $r;
+        }
+    }
+
+    return $data2;
+}
+
